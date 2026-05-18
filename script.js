@@ -2,25 +2,25 @@ let yesBtn = document.getElementById("yesBtn");
 let noBtn = document.getElementById("noBtn");
 let cat = document.getElementById("cat");
 
-let noCount = 0;   // NEW — counts how many times she presses NO
+let noCount = 0;   // counts how many times she presses NO
 
-// When she clicks YES → redirect
+// YES button → redirect
 yesBtn.onclick = () => {
-    window.location.href = "https://example.com"; // change this later
+    window.location.href = "https://example.com"; // change this to your real link
 };
 
-// When she clicks NO
+// NO button → shrink NO, grow YES, change cat, count clicks
 noBtn.onclick = () => {
 
-    noCount++;   // NEW — increase counter
+    noCount++;
 
-    // If she pressed NO 6 times → send her to the sad page
+    // After 6 NO presses → go to sad page
     if (noCount >= 6) {
-        window.location.href = "sad.html";   // NEW — this will be your sad page
+        window.location.href = "sad.html";
         return;
     }
 
-    // Normal shrinking/growing behavior
+    // Shrink NO, grow YES
     let noSize = parseFloat(window.getComputedStyle(noBtn).fontSize);
     let yesSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
 
