@@ -1,4 +1,4 @@
-/* Stunning dreamy purple gradient */
+/* Gorgeous dreamy purple gradient */
 body {
     background: radial-gradient(circle at top left, #f3c8ff 0%, #d29bff 25%, #a56eff 55%, #7b2fff 80%, #4b1a8f 100%);
     background-attachment: fixed;
@@ -15,64 +15,70 @@ body {
     margin: 0;
     overflow: hidden;
 
-    /* soft vignette glow */
     box-shadow: inset 0 0 200px rgba(0,0,0,0.35);
 }
 
-/* slow breathing effect */
+/* breathing effect */
 @keyframes gradientPulse {
     0% { filter: brightness(1); }
     50% { filter: brightness(1.15); }
     100% { filter: brightness(1); }
 }
 
-/* Soft purple mist layer */
+/* mist */
 .mist {
     position: fixed;
-    width: 200%;
-    height: 200%;
+    width: 250%;
+    height: 250%;
     background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
-    animation: mistMove 20s linear infinite;
+    animation: mistMove 25s linear infinite;
     pointer-events: none;
 }
 
 @keyframes mistMove {
-    0% { transform: translate(-20%, -20%); }
-    50% { transform: translate(20%, 20%); }
-    100% { transform: translate(-20%, -20%); }
+    0% { transform: translate(-25%, -25%); }
+    50% { transform: translate(25%, 25%); }
+    100% { transform: translate(-25%, -25%); }
 }
 
 .container {
     z-index: 10;
+    width: 90%;
+    max-width: 400px;
 }
 
 .cat {
-    width: 180px;
-    margin-bottom: 20px;
+    width: 150px;
+    margin-bottom: 15px;
 }
 
 h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 32px;
+    margin-bottom: 15px;
     color: white;
     text-shadow: 0 0 10px #ffb3ff;
 }
 
-/* Heart counter */
 .counter {
-    font-size: 35px;
-    margin-bottom: 20px;
+    font-size: 28px;
+    margin-bottom: 15px;
 }
 
 /* Buttons */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .buttons button {
-    font-size: 30px;
-    padding: 15px 40px;
-    margin: 20px;
+    font-size: 26px;
+    padding: 12px 30px;
     border: none;
     border-radius: 12px;
     cursor: pointer;
     transition: 0.3s;
+    width: 100%;
 }
 
 #yesBtn {
@@ -80,33 +86,34 @@ h1 {
     color: white;
 }
 
-/* BOUNCING YES BUTTON */
+#noBtn {
+    background: #f44336;
+    color: white;
+}
+
+/* bouncing YES */
 .bounce {
     animation: bounceAnim 1.2s infinite ease-in-out;
 }
 
 @keyframes bounceAnim {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+    50% { transform: translateY(-10px); }
 }
 
-/* Glowing YES */
+/* glowing YES */
 .glow {
-    box-shadow: 0 0 20px #ff8cff, 0 0 40px #ffb3ff;
+    box-shadow: 0 0 15px #ff8cff, 0 0 30px #ffb3ff;
 }
 
-#noBtn {
-    background: #f44336;
-    color: white;
-}
-
-/* Falling shapes */
+/* falling shapes */
 .falling {
     position: fixed;
     top: -20px;
     animation: fallAnim 5s linear forwards;
     pointer-events: none;
     opacity: 0.9;
+    font-size: 18px;
 }
 
 @keyframes fallAnim {
@@ -114,28 +121,35 @@ h1 {
     100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
 
-/* Sparkles */
+/* sparkles */
 .sparkle {
     position: fixed;
-    font-size: 18px;
+    font-size: 14px;
     animation: sparkleAnim 3s linear forwards;
     pointer-events: none;
 }
 
 @keyframes sparkleAnim {
     0% { opacity: 1; transform: translateY(0) scale(1); }
-    100% { opacity: 0; transform: translateY(100px) scale(0.5); }
+    100% { opacity: 0; transform: translateY(60px) scale(0.5); }
 }
 
-/* Butterflies */
+/* butterflies */
 .butterfly {
     position: fixed;
-    font-size: 30px;
-    animation: butterflyAnim 6s linear forwards;
+    font-size: 22px;
+    animation: butterflyAnim 7s linear forwards;
     pointer-events: none;
 }
 
 @keyframes butterflyAnim {
     0% { transform: translateX(-50px) translateY(0) rotate(0deg); }
-    100% { transform: translateX(100vw) translateY(-200px) rotate(360deg); }
+    100% { transform: translateX(100vw) translateY(-150px) rotate(360deg); }
+}
+
+/* MOBILE FIXES */
+@media (max-width: 480px) {
+    h1 { font-size: 28px; }
+    .cat { width: 130px; }
+    .buttons button { font-size: 24px; padding: 10px 20px; }
 }
