@@ -46,7 +46,7 @@ setInterval(() => {
 
 }, 700);
 
-/* 💜 Falling shapes (light amount) */
+/* 💜 Falling shapes */
 const shapes = ["💜", "💖", "💙", "💗", "⭐"];
 
 function createFallingShape() {
@@ -62,5 +62,35 @@ function createFallingShape() {
     setTimeout(() => shape.remove(), 5000);
 }
 
-// Only a few falling shapes (not too many)
-setInterval(createFallingShape, 600);
+setInterval(createFallingShape, 700);
+
+/* ✨ Sparkles */
+function createSparkle() {
+    const sparkle = document.createElement("div");
+    sparkle.classList.add("sparkle");
+    sparkle.textContent = "✨";
+
+    sparkle.style.left = Math.random() * window.innerWidth + "px";
+    sparkle.style.top = Math.random() * window.innerHeight + "px";
+
+    document.body.appendChild(sparkle);
+
+    setTimeout(() => sparkle.remove(), 3000);
+}
+
+setInterval(createSparkle, 900);
+
+/* 🦋 Butterflies */
+function createButterfly() {
+    const butterfly = document.createElement("div");
+    butterfly.classList.add("butterfly");
+    butterfly.textContent = "🦋";
+
+    butterfly.style.top = Math.random() * window.innerHeight + "px";
+
+    document.body.appendChild(butterfly);
+
+    setTimeout(() => butterfly.remove(), 6000);
+}
+
+setInterval(createButterfly, 4000);
