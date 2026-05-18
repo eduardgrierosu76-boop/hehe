@@ -1,28 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Do You Love Me?</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* Gorgeous dreamy purple gradient */
+body {
+    background: radial-gradient(circle at top left, #e4b3ff 0%, #c084ff 25%, #8b5cf6 60%, #5b21b6 100%);
+    background-attachment: fixed;
+    animation: gradientPulse 12s ease-in-out infinite;
 
-    <!-- dreamy purple mist layer -->
-    <div class="mist"></div>
+    font-family: Arial, sans-serif;
+    text-align: center;
 
-    <div class="container">
-        <img id="cat" src="cat1.png" class="cat">
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        <h1>Do you love me?</h1>
+    margin: 0;
+    overflow: hidden;
 
-        <div id="heartCounter" class="counter"></div>
+    /* soft glow around the edges */
+    box-shadow: inset 0 0 200px rgba(0,0,0,0.35);
+}
 
-        <div class="buttons">
-            <button id="yesBtn" class="bounce glow">YES</button>
-            <button id="noBtn">NO</button>
-        </div>
-    </div>
-
-<script src="script.js"></script>
-</body>
-</html>
+/* slow breathing effect */
+@keyframes gradientPulse {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.15); }
+    100% { filter: brightness(1); }
+}
