@@ -5,6 +5,15 @@ let counter = document.getElementById("heartCounter");
 
 let noCount = 0;
 
+// GIFs for each NO click
+const gifs = [
+    "cat-kiss.gif",                 // NO #1
+    "happy-cat.gif",                // NO #2
+    "cat-confused.gif",             // NO #3
+    "ohno.gif",                     // NO #4
+    "sad-cat.gif"                   // NO #5
+];
+
 // YES button → redirect
 yesBtn.onclick = () => {
     window.location.href = "https://example.com"; 
@@ -15,15 +24,17 @@ noBtn.onclick = () => {
 
     noCount++;
 
+    // If more than 5 NOs → go to sad page
     if (noCount >= 6) {
         window.location.href = "sad.html";
         return;
     }
 
-    // MOBILE‑SAFE YES GROWTH
-    let yesSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+    // Change GIF based on NO count
+    cat.src = gifs[noCount - 1];
 
-    // cap max size so it doesn't break mobile layout
+    // MASSIVE YES GROWTH (mobile safe)
+    let yesSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
     if (yesSize < 200) {
         yesBtn.style.fontSize = (yesSize * 1.55) + "px";
     }
@@ -33,9 +44,6 @@ noBtn.onclick = () => {
     if (noSize > 10) {
         noBtn.style.fontSize = (noSize - 4) + "px";
     }
-
-    // Change cat face
-    cat.src = "cat-sad.png";
 };
 
 /* ❤️ Heart loading animation */
