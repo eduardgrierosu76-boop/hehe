@@ -6,8 +6,7 @@ let counter = document.getElementById("heartCounter");
 let noCount = 0;
 
 // GIFs AFTER the first one
-// initial: cat-kiss.gif (in index.html)
-// then on each NO:
+// initial image = cat-kiss.gif (in index.html)
 const gifs = [
     "happy-cat.gif",     // NO #1
     "cat-confused.gif",  // NO #2
@@ -15,9 +14,9 @@ const gifs = [
     "sad-cat.gif"        // NO #4
 ];
 
-// YES button → redirect
+// YES button → go to YES PAGE
 yesBtn.onclick = () => {
-    window.location.href = "https://example.com";
+    window.location.href = "yes.html";
 };
 
 // NO button → shrink NO, grow YES, change cat, count clicks
