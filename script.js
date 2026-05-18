@@ -30,3 +30,20 @@ noBtn.onclick = () => {
     // Change cat face
     cat.src = "cat-sad.png";
 };
+
+/* ❤️ Falling hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.textContent = "❤️";
+
+    heart.style.left = Math.random() * window.innerWidth + "px";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 4000);
+}
+
+setInterval(createHeart, 300);
