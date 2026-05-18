@@ -1,4 +1,4 @@
-/* Purple background */
+/* REAL purple background */
 body {
     background: #b57edc;
     font-family: Arial, sans-serif;
@@ -32,6 +32,7 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Buttons */
 .buttons button {
     font-size: 30px;
     padding: 15px 40px;
@@ -52,12 +53,12 @@ h1 {
 }
 
 /* Falling shapes */
-.fall {
+.falling {
     position: fixed;
     top: -20px;
-    font-size: 25px;
     animation: fallAnim 5s linear forwards;
     pointer-events: none;
+    opacity: 0.9;
 }
 
 @keyframes fallAnim {
