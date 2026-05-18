@@ -22,11 +22,9 @@ noBtn.onclick = () => {
 
     // MASSIVE YES GROWTH
     let yesSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+    yesBtn.style.fontSize = (yesSize * 1.7) + "px";
 
-    // Exponential growth
-    yesBtn.style.fontSize = (yesSize * 1.6) + "px";
-
-    // Shrink NO normally
+    // Shrink NO
     let noSize = parseFloat(window.getComputedStyle(noBtn).fontSize);
     noBtn.style.fontSize = (noSize - 5) + "px";
 
@@ -34,26 +32,26 @@ noBtn.onclick = () => {
     cat.src = "cat-sad.png";
 };
 
-/* ❤️ Cycling hearts: 1 → 2 → 3 → 0 → repeat */
-let cycle = 1;
+/* ❤️ Heart loading animation: 0 → 1 → 2 → 3 → 0 → repeat */
+let cycle = 0;
 
 setInterval(() => {
+    if (cycle === 0) counter.textContent = "";
     if (cycle === 1) counter.textContent = "❤️";
     if (cycle === 2) counter.textContent = "❤️❤️";
     if (cycle === 3) counter.textContent = "❤️❤️❤️";
-    if (cycle === 0) counter.textContent = "";
 
     cycle++;
     if (cycle > 3) cycle = 0;
 
-}, 800);
+}, 700);
 
-/* 💜 Falling shapes */
+/* 💜 Falling shapes (light amount) */
 const shapes = ["💜", "💖", "💙", "💗", "⭐"];
 
 function createFallingShape() {
     const shape = document.createElement("div");
-    shape.classList.add("fall");
+    shape.classList.add("falling");
     shape.textContent = shapes[Math.floor(Math.random() * shapes.length)];
 
     shape.style.left = Math.random() * window.innerWidth + "px";
@@ -64,4 +62,5 @@ function createFallingShape() {
     setTimeout(() => shape.remove(), 5000);
 }
 
-setInterval(createFallingShape, 250);
+// Only a few falling shapes (not too many)
+setInterval(createFallingShape, 600);
