@@ -1,11 +1,20 @@
+/* === UPDATED BODY SECTION FOR PERFECT CENTERING === */
 body {
     background: #fff;
     font-family: Arial, sans-serif;
     text-align: center;
+
+    height: 100vh;              /* NEW */
+    display: flex;              /* NEW */
+    justify-content: center;    /* NEW */
+    align-items: center;        /* NEW */
+
+    margin: 0;                  /* NEW */
 }
 
+/* === UPDATED: removed margin-top so it doesn't push downward === */
 .container {
-    margin-top: 80px;
+    margin: 0;                  /* UPDATED */
 }
 
 .cat {
