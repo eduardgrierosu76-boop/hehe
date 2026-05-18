@@ -20,19 +20,25 @@ noBtn.onclick = () => {
         return;
     }
 
-    // MASSIVE YES GROWTH
+    // MOBILE‑SAFE YES GROWTH
     let yesSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
-    yesBtn.style.fontSize = (yesSize * 1.7) + "px";
+
+    // cap max size so it doesn't break mobile layout
+    if (yesSize < 200) {
+        yesBtn.style.fontSize = (yesSize * 1.55) + "px";
+    }
 
     // Shrink NO
     let noSize = parseFloat(window.getComputedStyle(noBtn).fontSize);
-    noBtn.style.fontSize = (noSize - 5) + "px";
+    if (noSize > 10) {
+        noBtn.style.fontSize = (noSize - 4) + "px";
+    }
 
     // Change cat face
     cat.src = "cat-sad.png";
 };
 
-/* ❤️ Heart loading animation: 0 → 1 → 2 → 3 → 0 → repeat */
+/* ❤️ Heart loading animation */
 let cycle = 0;
 
 setInterval(() => {
@@ -55,14 +61,13 @@ function createFallingShape() {
     shape.textContent = shapes[Math.floor(Math.random() * shapes.length)];
 
     shape.style.left = Math.random() * window.innerWidth + "px";
-    shape.style.fontSize = (20 + Math.random() * 20) + "px";
 
     document.body.appendChild(shape);
 
     setTimeout(() => shape.remove(), 5000);
 }
 
-setInterval(createFallingShape, 700);
+setInterval(createFallingShape, 900);
 
 /* ✨ Sparkles */
 function createSparkle() {
@@ -78,7 +83,7 @@ function createSparkle() {
     setTimeout(() => sparkle.remove(), 3000);
 }
 
-setInterval(createSparkle, 900);
+setInterval(createSparkle, 1200);
 
 /* 🦋 Butterflies */
 function createButterfly() {
@@ -90,7 +95,7 @@ function createButterfly() {
 
     document.body.appendChild(butterfly);
 
-    setTimeout(() => butterfly.remove(), 6000);
+    setTimeout(() => butterfly.remove(), 7000);
 }
 
-setInterval(createButterfly, 4000);
+setInterval(createButterfly, 5000);
