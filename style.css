@@ -1,8 +1,8 @@
-/* Stunning purple gradient */
+/* Stunning dreamy purple gradient */
 body {
-    background: linear-gradient(135deg, #a56eff, #7b2fff, #d08bff);
-    background-size: 300% 300%;
-    animation: gradientShift 12s ease infinite;
+    background: radial-gradient(circle at top left, #f3c8ff 0%, #d29bff 25%, #a56eff 55%, #7b2fff 80%, #4b1a8f 100%);
+    background-attachment: fixed;
+    animation: gradientPulse 12s ease-in-out infinite;
 
     font-family: Arial, sans-serif;
     text-align: center;
@@ -14,13 +14,16 @@ body {
 
     margin: 0;
     overflow: hidden;
+
+    /* soft vignette glow */
+    box-shadow: inset 0 0 200px rgba(0,0,0,0.35);
 }
 
-/* Smooth shifting gradient */
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* slow breathing effect */
+@keyframes gradientPulse {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.15); }
+    100% { filter: brightness(1); }
 }
 
 /* Soft purple mist layer */
@@ -92,7 +95,6 @@ h1 {
     box-shadow: 0 0 20px #ff8cff, 0 0 40px #ffb3ff;
 }
 
-/* NO button */
 #noBtn {
     background: #f44336;
     color: white;
