@@ -1,6 +1,9 @@
-/* REAL purple background */
+/* Stunning purple gradient */
 body {
-    background: #b57edc;
+    background: linear-gradient(135deg, #a56eff, #7b2fff, #d08bff);
+    background-size: 300% 300%;
+    animation: gradientShift 12s ease infinite;
+
     font-family: Arial, sans-serif;
     text-align: center;
 
@@ -10,10 +13,34 @@ body {
     align-items: center;
 
     margin: 0;
+    overflow: hidden;
+}
+
+/* Smooth shifting gradient */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Soft purple mist layer */
+.mist {
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+    animation: mistMove 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes mistMove {
+    0% { transform: translate(-20%, -20%); }
+    50% { transform: translate(20%, 20%); }
+    100% { transform: translate(-20%, -20%); }
 }
 
 .container {
-    margin: 0;
+    z-index: 10;
 }
 
 .cat {
@@ -24,6 +51,8 @@ body {
 h1 {
     font-size: 40px;
     margin-bottom: 20px;
+    color: white;
+    text-shadow: 0 0 10px #ffb3ff;
 }
 
 /* Heart counter */
@@ -38,8 +67,9 @@ h1 {
     padding: 15px 40px;
     margin: 20px;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
 #yesBtn {
@@ -47,6 +77,22 @@ h1 {
     color: white;
 }
 
+/* BOUNCING YES BUTTON */
+.bounce {
+    animation: bounceAnim 1.2s infinite ease-in-out;
+}
+
+@keyframes bounceAnim {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+/* Glowing YES */
+.glow {
+    box-shadow: 0 0 20px #ff8cff, 0 0 40px #ffb3ff;
+}
+
+/* NO button */
 #noBtn {
     background: #f44336;
     color: white;
@@ -62,12 +108,32 @@ h1 {
 }
 
 @keyframes fallAnim {
-    0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(110vh) rotate(360deg);
-        opacity: 0;
-    }
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* Sparkles */
+.sparkle {
+    position: fixed;
+    font-size: 18px;
+    animation: sparkleAnim 3s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes sparkleAnim {
+    0% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(100px) scale(0.5); }
+}
+
+/* Butterflies */
+.butterfly {
+    position: fixed;
+    font-size: 30px;
+    animation: butterflyAnim 6s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes butterflyAnim {
+    0% { transform: translateX(-50px) translateY(0) rotate(0deg); }
+    100% { transform: translateX(100vw) translateY(-200px) rotate(360deg); }
 }
