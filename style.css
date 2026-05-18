@@ -1,6 +1,6 @@
-/* Center everything perfectly */
+/* Purple background */
 body {
-    background: #fff;
+    background: #b57edc;
     font-family: Arial, sans-serif;
     text-align: center;
 
@@ -12,7 +12,6 @@ body {
     margin: 0;
 }
 
-/* No top margin so it stays centered */
 .container {
     margin: 0;
 }
@@ -24,10 +23,50 @@ body {
 
 h1 {
     font-size: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+/* Heart counter */
+.counter {
+    font-size: 35px;
+    margin-bottom: 20px;
 }
 
 .buttons button {
     font-size: 30px;
     padding: 15px 40px;
-    margin
+    margin: 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background: #4CAF50;
+    color: white;
+}
+
+#noBtn {
+    background: #f44336;
+    color: white;
+}
+
+/* Falling shapes */
+.fall {
+    position: fixed;
+    top: -20px;
+    font-size: 25px;
+    animation: fallAnim 5s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes fallAnim {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
