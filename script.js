@@ -5,13 +5,14 @@ let counter = document.getElementById("heartCounter");
 
 let noCount = 0;
 
-// GIFs for each NO click (exact filenames)
+// GIFs AFTER the first one
+// initial: cat-kiss.gif (in index.html)
+// then on each NO:
 const gifs = [
-    "cat-kiss.gif",     // NO #1
-    "happy-cat.gif",    // NO #2
-    "cat-confused.gif", // NO #3
-    "ohno.gif",         // NO #4
-    "sad-cat.gif"       // NO #5
+    "happy-cat.gif",     // NO #1
+    "cat-confused.gif",  // NO #2
+    "ohno.gif",          // NO #3
+    "sad-cat.gif"        // NO #4
 ];
 
 // YES button → redirect
@@ -23,13 +24,13 @@ yesBtn.onclick = () => {
 noBtn.onclick = () => {
     noCount++;
 
-    // If more than 5 NOs → go to sad page
-    if (noCount >= 6) {
+    // NO #5 → go to sad page
+    if (noCount >= 5) {
         window.location.href = "sad.html";
         return;
     }
 
-    // Change GIF based on NO count
+    // Change GIF based on NO count (1–4)
     cat.src = gifs[noCount - 1];
 
     // Grow YES (mobile-safe)
