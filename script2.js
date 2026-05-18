@@ -6,7 +6,6 @@ let counter = document.getElementById("heartCounter");
 let noCount = 0;
 
 // GIFs AFTER the first one
-// initial image = cat-kiss.gif (in index.html)
 const gifs = [
     "happy-cat.gif",     // NO #1
     "cat-confused.gif",  // NO #2
@@ -14,51 +13,37 @@ const gifs = [
     "sad-cat.gif"        // NO #4
 ];
 
-// YES button → go to YES PAGE
+// YES → go to yes.html
 yesBtn.onclick = () => {
     window.location.href = "yes.html";
 };
 
-// NO button → shrink NO, grow YES, change cat, count clicks
+// NO → change GIF + grow YES + shrink NO
 noBtn.onclick = () => {
     noCount++;
 
-    // NO #5 → go to sad page
     if (noCount >= 5) {
         window.location.href = "sad.html";
         return;
     }
 
-    // Change GIF based on NO count (1–4)
     cat.src = gifs[noCount - 1];
 
-    // Grow YES (mobile-safe)
     let yesSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
-    if (yesSize < 200) {
-        yesBtn.style.fontSize = (yesSize * 1.55) + "px";
-    }
+    yesBtn.style.fontSize = (yesSize * 1.55) + "px";
 
-    // Shrink NO
     let noSize = parseFloat(window.getComputedStyle(noBtn).fontSize);
-    if (noSize > 10) {
-        noBtn.style.fontSize = (noSize - 4) + "px";
-    }
+    noBtn.style.fontSize = (noSize - 4) + "px";
 };
 
-/* ❤️ Heart loading animation */
+// ❤️ Heart animation
 let cycle = 0;
-
 setInterval(() => {
-    if (cycle === 0) counter.textContent = "";
-    if (cycle === 1) counter.textContent = "❤️";
-    if (cycle === 2) counter.textContent = "❤️❤️";
-    if (cycle === 3) counter.textContent = "❤️❤️❤️";
-
-    cycle++;
-    if (cycle > 3) cycle = 0;
+    counter.textContent = ["", "❤️", "❤️❤️", "❤️❤️❤️"][cycle];
+    cycle = (cycle + 1) % 4;
 }, 700);
 
-/* 💜 Falling shapes */
+// 💜 Falling shapes
 const shapes = ["💜", "💖", "💙", "💗", "⭐"];
 
 function createFallingShape() {
@@ -71,7 +56,7 @@ function createFallingShape() {
 }
 setInterval(createFallingShape, 900);
 
-/* ✨ Sparkles */
+// ✨ Sparkles
 function createSparkle() {
     const sparkle = document.createElement("div");
     sparkle.classList.add("sparkle");
@@ -83,7 +68,7 @@ function createSparkle() {
 }
 setInterval(createSparkle, 1200);
 
-/* 🦋 Butterflies */
+// 🦋 Butterflies
 function createButterfly() {
     const butterfly = document.createElement("div");
     butterfly.classList.add("butterfly");
